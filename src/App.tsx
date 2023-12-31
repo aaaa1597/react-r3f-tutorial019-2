@@ -16,7 +16,13 @@ const Box = (props: MeshProps) => {
   return (
     <mesh {...props} ref={ref}>
       <boxGeometry />
-      <meshNormalMaterial />
+      <meshStandardMaterial roughness={0.75} emissive="#404057" />
+      <Html distanceFactor={3} position={new THREE.Vector3(1.2, 1.2, 1.2)}>
+        <div className="content">
+          Boxにannotation
+        </div>
+      </Html>
+      <arrowHelper args={[new THREE.Vector3(-1, -1, -1).normalize(), new THREE.Vector3(1.2, 1.2, 1.2), Math.sqrt(1.1), "red", 0.5]} />
     </mesh>
   )
 }
@@ -27,7 +33,7 @@ const App = () => {
       <Canvas camera={{ position: [3, 1, 2] }}>
         <Box position={[1, 1, 1]} name="A" />
         <Environment preset="forest" background />
-        <Html key={112} position={[2, 1, 0]} className="annotation" style={{width:180}}>
+        <Html key={112} position={[0.7, 1, 0]} className="annotation" style={{width:180}} transform distanceFactor={3}>
           空間にアノテーション
         </Html>
         <OrbitControls />
