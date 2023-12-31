@@ -1,0 +1,11 @@
+#root {
+  background: #000000;
+}
+
+.annotation {
+  background: #181c20;
+  color: #fcf2f4;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-family: var(--leva-fonts-mono);
+}
